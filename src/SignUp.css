@@ -33,3 +33,17 @@ input:hover{
 label {
     display: block;
 }
+
+.sign-form .sign-input {
+    width: 200px;
+    background-color: rosybrown;;
+    cursor: pointer;
+    line-height: 3;
+    color: rgb(233, 221, 221);
+    font-size: 20px;
+}
+
+.sign-form .sign-input:hover {
+    background-color: rgb(233, 221, 221);
+    color: rgb(31, 26, 26);
+}
