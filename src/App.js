@@ -1,7 +1,5 @@
 import './App.css';
 
-import SignUp from './SignUp';
-
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -9,6 +7,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
+import SignUp from './SignUp';
+import Login from './Login';
 
 export default function App() {
   return (
@@ -50,9 +51,9 @@ function Home() {
   return <h2>Home</h2>;
 }
 
-function Login() {
-  return <h2>Login</h2>;
-}
+// function Login() {
+//   return <h2>Login</h2>;
+// }
 
 // function SingUp() {
 //   return <h2>SingUp</h2>;
