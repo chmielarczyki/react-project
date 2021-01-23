@@ -4,12 +4,13 @@
     font-weight: 300;
     padding-top: 10px;
     text-decoration: underline;
+    width: 40;
 }
 
 .registration {
     background-color: rgb(31, 26, 26);
     color: rgb(233, 221, 221);
-    width: 600px;
+    width: 80%;
     font-size: 20px;
     margin: 0 auto;
     border-radius: 10px;
@@ -20,7 +21,7 @@
     padding: 10px;
 }
 
-.sign-form  .sign-legend {
+.sign-form .sign-legend {
     font-size: 30px;
     color: rosybrown;
     margin-bottom: 30px;
@@ -28,7 +29,7 @@
 
 input{
     margin-bottom: 20px;
-    width: 300px;
+    width: 50%;
     cursor: pointer;
     line-height: 2;
     background-color: rgb(233, 221, 221);
@@ -43,7 +44,7 @@ label {
 }
 
 .sign-form .sign-input {
-    width: 200px;
+    width: 30%;;
     background-color: rosybrown;
     cursor: pointer;
     line-height: 3;

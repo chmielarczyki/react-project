@@ -5,10 +5,12 @@ import axios from 'axios';
 
 const SignUp = () => {
 
+    const passwordRegex = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{6,}$/g;
+
     const validate = (form) => {
-        if(!form.name) {
+        if(!form.username) {
             return "Name is required !";
-        } else if (form.name.lenght <= 4) {
+        } else if (form.username.lenght <= 4) {
             return "Name is too short !";
         }
 
@@ -20,7 +22,7 @@ const SignUp = () => {
             return "Password is required !";
         } else if (form.password.length < 6) {
             return "Password is too short !";
-        } else if (/^[!_%#&$?@*]$/i.test(form.password)) {
+        } else if (!passwordRegex.test(form.password)) {
             return "Password must contain character !_%#&$?@*";
         }
 
@@ -28,7 +30,7 @@ const SignUp = () => {
             return "Confirm password is required !";
         } else if (form.confirmPassword.length < 6) {
             return "Confirm password is too short !";
-        } else if (/^[!_%#&$?@*]$/i.test(form.confirmPassword)) {
+        } else if (passwordRegex.test(form.confirmPassword)) {
             return "Confirm password must contain character !_%#&$?@*";
         }
 
@@ -41,7 +43,7 @@ const SignUp = () => {
 
     const [error, setError] = useState('');
     const [form, setForm] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -65,22 +67,61 @@ const SignUp = () => {
             return
         }
 
-        let axiosConfig = {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        };
+        console.log('test');
 
+        // let axiosConfig = {
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'Accept': 'application/json'
+        //     }
+        // };
+
+        // let reqForm = {
+        //     username: form.username,
+        //     password: form.password,
+        //     email: form.email
+        // }
+
+    
+        const headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+
+        let newUser = {
+            username: form.username,
+            password: form.password,
+            email: form.email
+        }
+
+        axios.post(
+            'http://akademia108.pl/api/social-app/user/signup', 
+            JSON.stringify(newUser),
+            { 'headers': headers })
+            .then((req) => {
+            console.log(req);  
+
+            })
+            .catch((error) => {
+
+            console.error(error);
+        })
        
-        axios.post('https://akademia108.pl/api/social-app/user/signup', form, axiosConfig)
-            .then(response => {
-                console.log(response);
+        // axios.post('https://akademia108.pl/api/social-app/user/signup', reqForm, axiosConfig)
+        //     .then(response => {
+        //         console.log(response);
 
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     })
+
+        setForm({
+            username: '',
+            email: '',
+            password: '',
+            confirmPassword: ''
+        })
     }
 
 
@@ -93,20 +134,20 @@ const SignUp = () => {
                 <div className="content">
                     <legend className="sign-legend">Please Sing Up</legend>
                     <div className="sign-name">
-                        <label className="" for="name">User Name</label>
-                        <input className="input" type="text" name="name" id="name" onChange={updateField} />
+                        <label className="" htmlFor="name">User Name</label>
+                        <input className="input" type="text" name="username" id="name" onChange={updateField} value={form.username} />
                     </div>
                     <div className="sign-email">
-                        <label className= "" for="email">Email</label>
-                        <input className="input" type="email" name="email" id="email" onChange={updateField} />
+                        <label className= "" htmlFor="email">Email</label>
+                        <input className="input" type="email" name="email" id="email" onChange={updateField} value={form.email} />
                     </div>
                     <div className="sign-password">
-                        <label className="" for="password">Password</label>
-                        <input className="input" type="password" name="password" id="password" onChange={updateField} />
+                        <label className="" htmlFor="password">Password</label>
+                        <input className="input" type="text" name="password" id="password" onChange={updateField} value={form.password} />
                     </div>
                     <div className="sign-confirm-password">
-                        <label className="" for="confirmPassword">Confirm</label>
-                        <input className="input" type="password" name="confirmPassword" id="confirmPassword" onChange={updateField} />
+                        <label className="" htmlFor="confirmPassword">Confirm</label>
+                        <input className="input" type="text" name="confirmPassword" id="confirmPassword" onChange={updateField} value={form.confirmPassword} />
                     </div>
                     <div className="">
                         <input className="sign-input" type="submit" value="Sign Up" />

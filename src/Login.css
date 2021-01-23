@@ -1,9 +1,9 @@
-.log-content {
+.log-content form {
     background-color: rgb(31, 26, 26);
     color: rgb(233, 221, 221);
-    width: 600px;
+    width: 80%;
     font-size: 20px;
-    margin: 0 auto;
+    margin: 20px auto;
     border-radius: 10px;
 }
 
@@ -20,7 +20,7 @@
 
 input{
     margin-bottom: 20px;
-    width: 300px;
+    width: 50%;
     cursor: pointer;
     line-height: 2;
     background-color: rgb(233, 221, 221);
@@ -35,7 +35,7 @@ label {
 }
 
 .log-input {
-    width: 200px;
+    width: 40%;
     background-color: rosybrown;;
     cursor: pointer;
     line-height: 3;

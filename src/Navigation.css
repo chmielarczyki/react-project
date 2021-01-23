@@ -1,0 +1,15 @@
+ul {
+    list-style: none;
+
+}
+
+li{
+    text-transform: uppercase;
+    color: rgb(31, 26, 26);
+    font-size: 20px;
+    line-height: 3;
+}
+
+li:hover {
+    color: rosybrown;
+}
