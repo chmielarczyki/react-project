@@ -26,12 +26,16 @@ const Home = () => {
 
         axios.get('http://localhost:3000/', axiosConfig)
             .then((res) => {
-                // const newUser = res.data ;
-                // setUser(() => {
-                //     newUser 
-                // });
-                // localStorage.getItem('jwt_token', res.data.jwt_token)
-                console.log(res);
+               
+                const newUser = res.data ;
+
+                console.log(newUser);
+
+                setUser(() => {
+                   return newUser 
+                });
+
+                // console.log(res);
             }).catch ((error) => {
                 console.error(error);
             })
